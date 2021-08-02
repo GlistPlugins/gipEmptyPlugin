@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.10.2)
 
 ##### PLUGIN NAME #####
-set(pluginname gipFFmpegVideo)
+set(pluginname gipEmpty)
 
 
 ##### PLUGIN PATHS #####
@@ -11,8 +11,7 @@ set(PREBUILT_DIR ${PLUGIN_DIR}/prebuilts)
 
 ##### PLUGIN SOURCES #####
 list(APPEND PLUGIN_SRCS
-			${PLUGIN_DIR}/src/gipFFmpegVideo.cpp
-			${PLUGIN_DIR}/src/gipFFmpegUtils.cpp
+			${PLUGIN_DIR}/src/gipEmpty.cpp
 )
 
 
@@ -43,23 +42,14 @@ endif(WIN32)
 ##### PLUGIN DEPENDENCY LINKING (IF ANY) #####					
 if(WIN32)
 	list(APPEND PLUGIN_LINKLIBS
-				avcodec
-				avformat
-				avfilter
-				avdevice
-				avutil
-				swscale
+				#Lib names
 	)
 elseif(LINUX)
 	list(APPEND PLUGIN_LINKLIBS
-				avcodec
-				avformat
-				avfilter
-				avdevice
-				avutil
-				swscale
+				#Lib names
 	)
 elseif(APPLE)
 	list(APPEND PLUGIN_LINKLIBS
+				#Lib names
 	)
 endif(WIN32)
