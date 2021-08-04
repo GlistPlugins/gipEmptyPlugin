@@ -18,6 +18,7 @@ list(APPEND PLUGIN_SRCS
 ##### PLUGIN HEADERS #####
 list(APPEND PLUGIN_INCLUDES
 			${PLUGIN_DIR}/src
+			${PREBUILT_DIR}/include
 )
 
 
