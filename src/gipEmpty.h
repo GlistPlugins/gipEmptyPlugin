@@ -10,10 +10,10 @@
 
 #include "gBasePlugin.h"
 
-class gipEmpty : public gBasePlugin{
+class gipFFmpegSound : public gBasePlugin{
 public:
-	gipEmpty();
-	virtual ~gipEmpty();
+	gipFFmpegSound();
+	virtual ~gipFFmpegSound();
 };
 
 #endif /* SRC_GIPEMPTY_H_ */
