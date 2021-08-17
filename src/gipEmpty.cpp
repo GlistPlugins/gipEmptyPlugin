@@ -7,12 +7,12 @@
 
 #include "gipEmpty.h"
 
-gipFFmpegSound::gipFFmpegSound() {
+gipEmpty::gipEmpty() {
 	// TODO Auto-generated constructor stub
 
 }
 
-gipFFmpegSound::~gipFFmpegSound() {
+gipEmpty::~gipEmpty() {
 	// TODO Auto-generated destructor stub
 }
 
