@@ -6,7 +6,7 @@ set(pluginname gipEmpty)
 
 ##### PLUGIN PATHS #####
 set(PLUGIN_DIR ${PLUGINS_DIR}/${pluginname})
-set(PREBUILT_DIR ${PLUGIN_DIR}/prebuilts)
+set(PLUGIN_LIBS_DIR ${PLUGIN_DIR}/libs)
 
 
 ##### PLUGIN SOURCES #####
@@ -18,20 +18,20 @@ list(APPEND PLUGIN_SRCS
 ##### PLUGIN HEADERS #####
 list(APPEND PLUGIN_INCLUDES
 			${PLUGIN_DIR}/src
-			${PREBUILT_DIR}/include
+			${PLUGIN_LIBS_DIR}/include
 )
 
 
 ##### PLUGIN DEPENDENCY LOCATIONS (IF ANY) #####
 if(WIN32)
 	list(APPEND PLUGIN_LINKDIRS
-				${PREBUILT_DIR}/lib/win32
-				${PREBUILT_DIR}/bin
+				${PLUGIN_LIBS_DIR}/lib/win32
+				${PLUGIN_LIBS_DIR}/bin
 	)
 	
-	#set(PLUGIN_LIBDIRS ${PREBUILT_DIR}/lib/win32)
+	#set(PLUGIN_LIBDIRS ${PLUGIN_LIBS_DIR}/lib/win32)
 	list(APPEND PLUGIN_LIBDIRS
-				${PREBUILT_DIR}/lib/win32
+				${PLUGIN_LIBS_DIR}/lib/win32
 	)
 elseif(LINUX)
 	#Linux libs here
