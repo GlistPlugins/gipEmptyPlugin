@@ -21,7 +21,7 @@ Fork & clone this project into ~/dev/glist/glistplugins
 1. ##### makeGray
 > Makes the imported image binary.
 2. ##### makeCanny
-> Finds the locations of objects basd on the XML file put in.
+> Finds the locations of objects based on the XML file put in.
 3. ##### objectDetection
 > Finds the locations of faces from image.
 4. ##### faceDetection 
