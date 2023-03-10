@@ -1,4 +1,4 @@
-# gipEmpty
+# gipEmptyPlugin
 This is a baseplate for all the GlistEngine plugins and should be cloned under `~dev/glist/glistplugins` whenever developing a new plugin for the engine.
 
 The developer should put his external precompiled library files into the plugin's libs folder.
