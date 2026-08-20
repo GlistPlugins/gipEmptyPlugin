@@ -19,9 +19,13 @@ list(APPEND PLUGIN_SRCS
 ##### PLUGIN HEADERS #####
 list(APPEND PLUGIN_INCLUDES
 			${PLUGIN_DIR}/src
-			${PLUGIN_LIBS_DIR}/include
-			${PLUGIN_PREBUILTS_DIR}/include
 )
+if(EXISTS "${PLUGIN_LIBS_DIR}/include")
+	list(APPEND PLUGIN_INCLUDES "${PLUGIN_LIBS_DIR}/include")
+endif()
+if(EXISTS "${PLUGIN_PREBUILTS_DIR}/include")
+	list(APPEND PLUGIN_INCLUDES "${PLUGIN_PREBUILTS_DIR}/include")
+endif()
 
 
 ##### PLUGIN DEPENDENCY LOCATIONS & DLL COPYING (IF ANY) #####
@@ -35,17 +39,21 @@ if(WIN32)
 		file(COPY ${PLUGIN_DLLS} DESTINATION ${CMAKE_BINARY_DIR})
 	endif()
 
-	list(APPEND PLUGIN_LINKDIRS
-				${PLUGIN_LIBS_DIR}/lib/win32
-				${PLUGIN_LIBS_DIR}/bin
-				${PLUGIN_PREBUILTS_DIR}/lib/win32
-				${PLUGIN_PREBUILTS_DIR}/bin
-	)
-	
-	list(APPEND PLUGIN_LIBDIRS
-				${PLUGIN_LIBS_DIR}/lib/win32
-				${PLUGIN_PREBUILTS_DIR}/lib/win32
-	)
+	if(EXISTS "${PLUGIN_LIBS_DIR}/lib/win32")
+		list(APPEND PLUGIN_LINKDIRS "${PLUGIN_LIBS_DIR}/lib/win32")
+		list(APPEND PLUGIN_LIBDIRS "${PLUGIN_LIBS_DIR}/lib/win32")
+	endif()
+	if(EXISTS "${PLUGIN_LIBS_DIR}/bin")
+		list(APPEND PLUGIN_LINKDIRS "${PLUGIN_LIBS_DIR}/bin")
+	endif()
+
+	if(EXISTS "${PLUGIN_PREBUILTS_DIR}/lib/win32")
+		list(APPEND PLUGIN_LINKDIRS "${PLUGIN_PREBUILTS_DIR}/lib/win32")
+		list(APPEND PLUGIN_LIBDIRS "${PLUGIN_PREBUILTS_DIR}/lib/win32")
+	endif()
+	if(EXISTS "${PLUGIN_PREBUILTS_DIR}/bin")
+		list(APPEND PLUGIN_LINKDIRS "${PLUGIN_PREBUILTS_DIR}/bin")
+	endif()
 elseif(LINUX)
 	# Linux libs & includes here
 elseif(APPLE)
