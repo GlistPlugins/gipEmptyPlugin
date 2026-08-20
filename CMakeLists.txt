@@ -54,6 +54,11 @@ if(WIN32)
 	if(EXISTS "${PLUGIN_PREBUILTS_DIR}/bin")
 		list(APPEND PLUGIN_LINKDIRS "${PLUGIN_PREBUILTS_DIR}/bin")
 	endif()
+elseif(ANDROID)
+	# Android libs & includes here (${ANDROID_ABI} -> arm64-v8a, armeabi-v7a, x86_64)
+	if(EXISTS "${PLUGIN_LIBS_DIR}/lib/android/${ANDROID_ABI}")
+		list(APPEND PLUGIN_LINKDIRS "${PLUGIN_LIBS_DIR}/lib/android/${ANDROID_ABI}")
+	endif()
 elseif(LINUX)
 	# Linux libs & includes here
 elseif(APPLE)
@@ -65,6 +70,10 @@ endif(WIN32)
 if(WIN32)
 	list(APPEND PLUGIN_LINKLIBS
 				# Add your library link names here (e.g. mylib, zlib)
+	)
+elseif(ANDROID)
+	list(APPEND PLUGIN_LINKLIBS
+				# Add your Android library link names here
 	)
 elseif(LINUX)
 	list(APPEND PLUGIN_LINKLIBS
